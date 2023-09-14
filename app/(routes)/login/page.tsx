@@ -7,6 +7,7 @@ import Github from ".././../../assests/login_assets/Github.png"
 import Twitter from "../../../assests/login_assets/Twitter.png"
 import LinkedIn from "../../../assests/login_assets/LinkedIn.png"
 import Discord from "../../../assests/login_assets/Discord.png"
+import SigninButton from "@/components/SigninButton";
 const LoginPage = () => {
     return (
         <div className="grid grid-cols-2 h-full">
@@ -51,7 +52,10 @@ const LoginPage = () => {
                     <p className="text-3xl font-bold">Sign In</p>
                     <p className="text-sm mt-1">Sign in to your account</p>
                     {/*<button>Click</button>*/}
-                    <div className="bg-[#FFFFFF] w-96 rounded-xl mt-4">
+                    <div className="mt-4">
+                        <SigninButton />
+                    </div>
+                    <div className="bg-[#FFFFFF] w-96 rounded-xl mt-6">
                         <div className="p-6">
                             <form className="grid">
                                 <span className="text-sm">Email address</span>
@@ -68,7 +72,7 @@ const LoginPage = () => {
                                 />
                             </form>
                             <div className="text-sm text-login_primary mt-4">Forgot password?</div>
-                            <button className="mt-6 font-semibold">Sign In</button>
+                            <button className="btn mt-6 font-semibold">Sign In</button>
                         </div>
                     </div>
                     <div className="text-center text-sm mt-6">Don't have an account? <Link href="/signup" className="text-login_primary">Register here</Link></div>
