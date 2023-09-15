@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors : {
         login_primary : "#4285F4",
+        main: "#F8FAFF"
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
