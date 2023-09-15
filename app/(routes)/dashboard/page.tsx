@@ -1,6 +1,7 @@
 import React from 'react'
 import {signOut, useSession} from "next-auth/react";
 import {
+    Banknote,
     CalendarClock,
     Code,
     ImageIcon,
@@ -8,10 +9,11 @@ import {
     MessageSquare,
     Music,
     Settings,
-    Tag, UserCircle2,
+    Tag, ThumbsUp, UserCircle2, Users,
     VideoIcon
 } from "lucide-react";
 import Link from "next/link";
+import SignOutButton from "@/components/SignOutButton";
 
 const Dashboard = () => {
     // const {data: session} = useSession()
@@ -59,9 +61,40 @@ const Dashboard = () => {
 
     ]
 
+    const cards = [
+        {
+            label: "Total Revenues",
+            icon : Banknote,
+            value : "$2,129,430",
+            percent: "+2.5%",
+            color: "bg-green-500"
+        },
+        {
+            label: "Total Transactions",
+            icon : Tag,
+            value : "1,520",
+            percent: "+1.7%",
+            color: "bg-yellow-500"
+        },
+        {
+            label: "Total Likes",
+            icon : ThumbsUp,
+            value : "9,721",
+            percent: "+1.4%",
+            color: "bg-red-500"
+        },
+        {
+            label: "Total Users",
+            icon : Users,
+            value : "9,721",
+            percent: "+4.2%",
+            color: "bg-blue-500"
+        },
+    ]
+
     return (
         <div className="grid grid-cols-[1fr_4fr] h-full">
-            <div className="bg-white p-5">
+            <div className="bg-main p-5">
                 <div className="bg-login_primary rounded-xl h-full">
                     <p className="text-white text-4xl font-bold px-10 pt-12 pb-6">Board.</p>
                     <div className="space-y-2.5 mt-4">
@@ -88,8 +121,35 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-red-300">
-                h2
+            <div className="bg-main">
+                <div className="grid grid-col px-10 py-10">
+                    <p className="text-2xl font-bold">Dashboard</p>
+                    <div className="">
+                        <div className="mt-8 flex justify-between">
+                            {cards.map((card) => (
+                                <div
+                                    key={card.value}
+                                    className="bg-white w-64 py-4 px-6 border shadow-lg border-2 border-gray-200 rounded-xl flex flex-col"
+                                >
+                                    <div className={`p-1.5 w-fit rounded-full text-white flex ${[card.color]}`}>
+                                        <card.icon className={`h-5 w-5 justify-center`}/>
+                                    </div>
+                                    <span className="text-xs mt-1 font-medium">{card.label}</span>
+                                    <div className="grid grid-cols-[3fr_1fr] mt-1">
+                                        <span className="text-xl font-bold">{card.value}</span>
+                                        <div className="flex items-center bg-green-100 rounded-2xl">
+                                            <span className="text-xs ml-2 text-green-500 font-medium">{card.percent}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                {/*<SignOutButton />*/}
             </div>
         </div>
     )
