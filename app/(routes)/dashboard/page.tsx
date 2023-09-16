@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, {useEffect} from 'react'
 import {signOut, useSession} from "next-auth/react";
 import {
     Banknote,
@@ -14,6 +15,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import SignOutButton from "@/components/SignOutButton";
+// IMPORTING CHARTJS COMPONENTS
+import ChartBar from "@/components/chart";
+
 
 const Dashboard = () => {
     // const {data: session} = useSession()
@@ -27,6 +31,8 @@ const Dashboard = () => {
     //         </div>
     //     )
     // }
+
+
 
     const routes = [
         {
@@ -122,14 +128,14 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="bg-main">
-                <div className="grid grid-col px-10 py-10">
-                    <p className="text-2xl font-bold">Dashboard</p>
-                    <div className="">
+                <div className="h-full grid grid-rows-[20%, 50%, 30%] gap-y-4 px-10 py-10">
+                    <div className="m-0 p-0">
+                        <p className="text-2xl font-bold">Dashboard</p>
                         <div className="mt-8 flex justify-between">
                             {cards.map((card) => (
                                 <div
                                     key={card.value}
-                                    className="bg-white w-64 py-4 px-6 border shadow-lg border-2 border-gray-200 rounded-xl flex flex-col"
+                                    className="bg-white w-64 py-4 px-6 border shadow-lg border-2 border-gray-200 rounded-2xl flex flex-col"
                                 >
                                     <div className={`p-1.5 w-fit rounded-full text-white flex ${[card.color]}`}>
                                         <card.icon className={`h-5 w-5 justify-center`}/>
@@ -145,8 +151,18 @@ const Dashboard = () => {
                             ))}
                         </div>
                     </div>
-                    <div>
+                    <div className="bg-white rounded-2xl w-full border shadow-lg border-2 border-gray-200 p-6">
+                        <p className="text-lg font-bold">Activities</p>
+                        <p className="text-xs text-gray-500">May - June 2021</p>
+                        <ChartBar />
+                    </div>
+                    <div className="flex justify-between border">
+                        <div className="w-40 h-40 bg-white">
 
+                        </div>
+                        <div className="w-40 h-40 bg-white">
+
+                        </div>
                     </div>
                 </div>
                 {/*<SignOutButton />*/}
