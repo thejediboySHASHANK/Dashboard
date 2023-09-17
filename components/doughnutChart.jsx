@@ -52,7 +52,7 @@ const DoughnutChart = () => {
     };
 
     return (
-        <div className="rounded-2xl mt-2" style={{height: "15vh"}}>
+        <div className="rounded-2xl -mt-4" style={{height: "15vh"}}>
             <Doughnut className="" data={data} options={options}/>
         </div>
     );

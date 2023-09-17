@@ -11,7 +11,7 @@ body,
 button.btn {
     @apply bg-[#4285F4] my-2 py-2 px-3 rounded-xl text-white w-full;
 }
-input {
+input.in {
     @apply w-full border my-2 py-3 px-3 rounded-2xl bg-[#F5F5F5] text-sm;
 }
 

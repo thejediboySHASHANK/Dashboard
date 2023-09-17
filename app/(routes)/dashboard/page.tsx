@@ -1,14 +1,15 @@
 "use client"
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {signOut, useSession} from "next-auth/react";
+import Image from "next/image";
 import {
-    Banknote,
+    Banknote, Bell,
     CalendarClock,
     Code,
     ImageIcon,
     LayoutDashboard,
     MessageSquare,
-    Music,
+    Music, Plus, Search,
     Settings,
     Tag, ThumbsUp, UserCircle2, Users,
     VideoIcon
@@ -18,22 +19,9 @@ import SignOutButton from "@/components/SignOutButton";
 // IMPORTING CHARTJS COMPONENTS
 import ChartBar from "@/components/chart";
 import DoughnutChart from "@/components/doughnutChart"
+import Navbar from "@/components/Navbar";
 
 const Dashboard = () => {
-    // const {data: session} = useSession()
-    // if (session && session.user) {
-    //     return (
-    //         <div className="flex gap-4 ml-auto">
-    //             <p className="text-sky-600">{session.user.name}</p>
-    //             <button onClick={() => signOut()} className="text-red-500">
-    //                 Sign Out
-    //             </button>
-    //         </div>
-    //     )
-    // }
-
-
-
     const routes = [
         {
             label: "Dashboard",
@@ -98,6 +86,18 @@ const Dashboard = () => {
         },
     ]
 
+    const [show, setShow] = useState(false)
+    // if (show) {
+    //     return (
+    //         <div className="flex justify-around items-start">
+    //             <div className="absolute w-2/5 h-40 bg-white text-white">
+    //
+    //             </div>
+    //         </div>
+    //
+    //     )
+    // }
+
     return (
         <div className="grid grid-cols-[1fr_4fr] h-full">
             <div className="bg-main p-5">
@@ -130,7 +130,7 @@ const Dashboard = () => {
             <div className="bg-main overflow-y-hidden">
                 <div className="h-full grid grid-rows-[10%, 50%, 40%] gap-y-4 px-10 py-10 overflow-y-hidden">
                     <div className="m-0 p-0">
-                        <p className="text-2xl font-bold">Dashboard</p>
+                        <Navbar />
                         <div className="mt-4 flex justify-between gap-8">
                             {cards.map((card) => (
                                 <div
@@ -158,9 +158,12 @@ const Dashboard = () => {
                     </div>
                     <div className="flex justify-between gap-8">
                         <div className="w-1/2 p-6 bg-white shadow-lg rounded-2xl border-2 border-gray-200">
-                            <p className="text-lg font-bold fixed">Top Products</p>
                             <div className="grid grid-cols-2">
-                                <DoughnutChart />
+                                <div>
+                                    <p className="text-lg font-bold">Top Products</p>
+                                    <DoughnutChart />
+                                </div>
+
                                 <div className="flex flex-col justify-around">
                                     <p className="text-sm font-bold">Basic Tees</p>
                                     <p className="text-sm font-bold">Custom Short Pants</p>
@@ -168,9 +171,26 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-1/2 bg-white  shadow-lg rounded-2xl border-2 border-gray-200">
+                        {
+                            show ?
+                                <div>
+                                    <div className="flex justify-around items-start">
+                                        <div className="absolute w-2/5 h-40 bg-black/10 text-white inset-y-96 inset-x-96">
 
-                        </div>
+                                        </div>
+                                    </div>
+                                </div> :
+                                    <div className="cursor-pointer flex justify-around items-center w-1/2 bg-white  shadow-lg rounded-2xl border-2 border-gray-200">
+                                        <div className="flex flex-col items-center">
+                                            <div className="bg-gray-100 p-3 rounded-full">
+                                                <Plus className="w-10 h-10 text-gray-400"/>
+                                            </div>
+                                            <p className="text-gray-600 text-sm mt-2">Add Profile</p>
+                                        </div>
+                                    </div>
+
+                        }
+
                     </div>
                 </div>
                 {/*<SignOutButton />*/}
