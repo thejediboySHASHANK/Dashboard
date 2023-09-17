@@ -17,7 +17,7 @@ import Link from "next/link";
 import SignOutButton from "@/components/SignOutButton";
 // IMPORTING CHARTJS COMPONENTS
 import ChartBar from "@/components/chart";
-
+import DoughnutChart from "@/components/doughnutChart"
 
 const Dashboard = () => {
     // const {data: session} = useSession()
@@ -127,15 +127,15 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-main">
-                <div className="h-full grid grid-rows-[20%, 50%, 30%] gap-y-4 px-10 py-10">
+            <div className="bg-main overflow-y-hidden">
+                <div className="h-full grid grid-rows-[10%, 50%, 40%] gap-y-4 px-10 py-10 overflow-y-hidden">
                     <div className="m-0 p-0">
                         <p className="text-2xl font-bold">Dashboard</p>
-                        <div className="mt-8 flex justify-between">
+                        <div className="mt-4 flex justify-between gap-8">
                             {cards.map((card) => (
                                 <div
                                     key={card.value}
-                                    className="bg-white w-64 py-4 px-6 border shadow-lg border-2 border-gray-200 rounded-2xl flex flex-col"
+                                    className="bg-white w-1/4 py-4 px-6 border shadow-lg border-2 border-gray-200 rounded-2xl flex flex-col"
                                 >
                                     <div className={`p-1.5 w-fit rounded-full text-white flex ${[card.color]}`}>
                                         <card.icon className={`h-5 w-5 justify-center`}/>
@@ -156,11 +156,19 @@ const Dashboard = () => {
                         <p className="text-xs text-gray-500">May - June 2021</p>
                         <ChartBar />
                     </div>
-                    <div className="flex justify-between border">
-                        <div className="w-40 h-40 bg-white">
-
+                    <div className="flex justify-between gap-8">
+                        <div className="w-1/2 p-6 bg-white shadow-lg rounded-2xl border-2 border-gray-200">
+                            <p className="text-lg font-bold fixed">Top Products</p>
+                            <div className="grid grid-cols-2">
+                                <DoughnutChart />
+                                <div className="flex flex-col justify-around">
+                                    <p className="text-sm font-bold">Basic Tees</p>
+                                    <p className="text-sm font-bold">Custom Short Pants</p>
+                                    <p className="text-sm font-bold">Super Pants</p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="w-40 h-40 bg-white">
+                        <div className="w-1/2 bg-white  shadow-lg rounded-2xl border-2 border-gray-200">
 
                         </div>
                     </div>
