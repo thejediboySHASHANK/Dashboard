@@ -62,13 +62,13 @@ const LoginPage = () => {
                                 <input
                                     type="email"
                                     placeholder="please enter your email"
-                                    className="mt-2.5"
+                                    className="in mt-2.5"
                                 />
                                 <span className="text-sm mt-3">Password</span>
                                 <input
                                     type="password"
                                     placeholder="please enter your password"
-                                    className="mt-2.5"
+                                    className="in mt-2.5"
                                 />
                             </form>
                             <div className="text-sm text-login_primary mt-4">Forgot password?</div>
