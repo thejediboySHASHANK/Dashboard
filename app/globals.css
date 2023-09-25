@@ -15,15 +15,15 @@ input.in {
     @apply w-full border my-2 py-3 px-3 rounded-2xl bg-[#F5F5F5] text-sm;
 }
 
-.step-item {
-    @apply relative flex flex-col justify-center items-center w-36;
+/*.step-item {*/
+/*    @apply relative flex flex-col justify-center items-center w-36;*/
+/*}*/
+
+.step-item{
+    @apply content-[''] bg-slate-200 absolute -bottom-2 w-48 h-[3px];
 }
 
-.step-item::before{
-    @apply content-[''] bg-slate-200 absolute w-full h-[3px];
-}
-
-.active .step-item{
+.active{
     @apply bg-sky-600;
 }
 
