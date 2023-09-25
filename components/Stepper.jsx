@@ -5,9 +5,46 @@ const Stepper = () => {
     const [currentStep, setCurrentStep] = useState(1)
     const [complete, setComplete] = useState(false)
 
+    const renderForms = () => {
+        if (complete) {
+            return null
+        }
+
+        switch (currentStep) {
+            case 1:
+                return (
+                    <div>
+                        <div className="mt-8">
+                            <p className="text-md">Enter Name*</p>
+                            <input className="in" placeholder="Eg. John Doe"/>
+
+                            <p className="font-md mt-2">Enter Mail*</p>
+                            <input className="in" placeholder="Eg. John@xyz.com" />
+
+                            <p className="font-md mt-2">Enter Phone*</p>
+                            <input className="in" placeholder="Eg. 9123456789" />
+                        </div>
+                    </div>
+                )
+
+            case 2:
+                return (
+                    <div>
+                        <div className="mt-8">
+                            <p className="text-md">Instagram Link<span className="text-gray-400 text-sm"> (Optional)</span></p>
+                            <input className="in" placeholder="Eg. instagram.com/username"/>
+
+                            <p className="font-md mt-2">Youtube Link<span className="text-gray-400 text-sm"> (Optional)</span></p>
+                            <input className="in" placeholder="Eg. youtube/username" />
+                        </div>
+                    </div>
+                )
+        }
+    }
+
     return (
         <>
-            <div className="flex justify-around">
+            <div className="flex justify-around mb-6">
                 {
                     steps?.map((step, i) => (
                         <div key={i} className="relative flex flex-col justify-center items-center">
@@ -18,41 +55,32 @@ const Stepper = () => {
                 }
             </div>
 
-            <div>
-                {
-                    steps?.map((step, i) => (
-                        <div>
-                            {i+1 < currentStep || complete ?
-                                <div>
-
-                                </div> :
-                                <div>
-                                    <div className="mt-8">
-                                        <p className="text-md">Enter Name*</p>
-                                        <input className="in" placeholder="Eg. John Doe"/>
-
-                                        <p className="font-md mt-2">Enter Mail*</p>
-                                        <input className="in" placeholder="Eg. John@xyz.com" />
-
-                                        <p className="font-md mt-2">Enter Phone*</p>
-                                        <input className="in" placeholder="Eg. 9123456789" />
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    ))
-                }
+            <div className="mb-6">
+                {renderForms()}
             </div>
 
-            <button className="btn"
-                    onClick={() => {
-                        currentStep === steps.length ?
-                            setComplete(true) :
-                            setCurrentStep((prev) => prev + 1)
-                    }}
-            >
-                {currentStep === steps.length ? "Done" : "Next"}
-            </button>
+            <div className="grid justify-items-end gap-4">
+                <div className="flex gap-4">
+                    <button className="bg-[#ffffff] border border-gray-400 hover:bg-gray-200 my-2 py-2 px-3 rounded-xl text-white w-18"
+                            onClick={() => {
+                                setCurrentStep((prev) => prev - 1)
+                            }}
+                    >
+                        <span className="text-black text-sm font-semibold">Back</span>
+                    </button>
+                    <button className="bg-[#4285F4] my-2 py-2 px-3 rounded-xl text-white w-18"
+                            onClick={() => {
+                                currentStep === steps.length ?
+                                    setComplete(true) :
+                                    setCurrentStep((prev) => prev + 1)
+                            }}
+                    >
+                        <span className="font-semibold text-sm">{currentStep === steps.length ? "Done" : "Next"}</span>
+                    </button>
+                </div>
+
+            </div>
+
         </>
 
     )
