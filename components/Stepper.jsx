@@ -5,6 +5,12 @@ const Stepper = () => {
     const [currentStep, setCurrentStep] = useState(1)
     const [complete, setComplete] = useState(false)
 
+    const [name, setName] = useState("")
+    const [mail, setMail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [insta, setInsta] = useState("")
+    const [youtube, setYoutube] = useState("")
+
     const renderForms = () => {
         if (complete) {
             return null
@@ -16,13 +22,13 @@ const Stepper = () => {
                     <div>
                         <div className="mt-8">
                             <p className="text-md">Enter Name*</p>
-                            <input className="in" placeholder="Eg. John Doe"/>
+                            <input value={name} onChange={ev => setName(ev.target.value)} className="in" placeholder="Eg. John Doe"/>
 
                             <p className="font-md mt-2">Enter Mail*</p>
-                            <input className="in" placeholder="Eg. John@xyz.com" />
+                            <input value={mail} onChange={ev => setMail(ev.target.value)} className="in" placeholder="Eg. John@xyz.com" />
 
                             <p className="font-md mt-2">Enter Phone*</p>
-                            <input className="in" placeholder="Eg. 9123456789" />
+                            <input value={phone} onChange={ev => setPhone(ev.target.value)} className="in" placeholder="Eg. 9123456789" />
                         </div>
                     </div>
                 )
@@ -32,10 +38,10 @@ const Stepper = () => {
                     <div>
                         <div className="mt-8">
                             <p className="text-md">Instagram Link<span className="text-gray-400 text-sm"> (Optional)</span></p>
-                            <input className="in" placeholder="Eg. instagram.com/username"/>
+                            <input value={insta} onChange={ev => setInsta(ev.target.value)} className="in" placeholder="Eg. instagram.com/username"/>
 
                             <p className="font-md mt-2">Youtube Link<span className="text-gray-400 text-sm"> (Optional)</span></p>
-                            <input className="in" placeholder="Eg. youtube/username" />
+                            <input value={youtube} onChange={ev => setYoutube(ev.target.value)} className="in" placeholder="Eg. youtube/username" />
                         </div>
                     </div>
                 )
@@ -61,13 +67,17 @@ const Stepper = () => {
 
             <div className="grid justify-items-end gap-4">
                 <div className="flex gap-4">
-                    <button className="bg-[#ffffff] border border-gray-400 hover:bg-gray-200 my-2 py-2 px-3 rounded-xl text-white w-18"
-                            onClick={() => {
-                                setCurrentStep((prev) => prev - 1)
-                            }}
-                    >
-                        <span className="text-black text-sm font-semibold">Back</span>
-                    </button>
+                    {currentStep === 2 &&
+                        <div>
+                            <button className="bg-[#ffffff] border border-gray-400 hover:bg-gray-200 my-2 py-2 px-3 rounded-xl text-white w-18"
+                                    onClick={() => {
+                                        setCurrentStep((prev) => prev - 1)
+                                    }}
+                            >
+                                <span className="text-black text-sm font-semibold">Back</span>
+                            </button>
+                        </div>
+                    }
                     <button className="bg-[#4285F4] my-2 py-2 px-3 rounded-xl text-white w-18"
                             onClick={() => {
                                 currentStep === steps.length ?
