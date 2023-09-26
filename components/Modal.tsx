@@ -1,6 +1,14 @@
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Stepper from "@/components/Stepper"
+import {UserContext, UserContextProvider} from "@/context/UserContext";
 const Modal = ({isVisible, onClose} : any) => {
+
+    const {user}:any = useContext(UserContext)
+
+    useEffect(() => {
+        console.log (user)
+    }, [user])
+
     if (!isVisible) return null;
     // const [show, setShow] = useState(false)
 
@@ -14,7 +22,6 @@ const Modal = ({isVisible, onClose} : any) => {
                         <button
                             className="text-black text-xl place-self-end"
                             onClick={() => onClose()}
-                            // onSubmit={() => onClose()}
                         >
                             X
                         </button>
@@ -22,7 +29,7 @@ const Modal = ({isVisible, onClose} : any) => {
 
                     <div className="border-b mt-5"></div>
                     <div className="">
-                        <Stepper />
+                        <Stepper onClose={onClose} />
                     </div>
                 </div>
             </div>

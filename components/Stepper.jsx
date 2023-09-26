@@ -1,6 +1,10 @@
-import React, {useState} from 'react'
+"use client"
 
-const Stepper = () => {
+import React, {useContext, useState} from 'react'
+import {UserContext, UserContextProvider} from "@/context/UserContext";
+
+
+const Stepper = ({onClose}) => {
     const steps = ["Basic", "Social"]
     const [currentStep, setCurrentStep] = useState(1)
     const [complete, setComplete] = useState(false)
@@ -10,12 +14,21 @@ const Stepper = () => {
     const [phone, setPhone] = useState("")
     const [insta, setInsta] = useState("")
     const [youtube, setYoutube] = useState("")
+    const {setUser}= useContext(UserContext)
+    const {user} = useContext(UserContext)
 
     const renderForms = () => {
         if (complete) {
-            return null
+            const data = {
+                name,
+                mail,
+                phone,
+                insta,
+                youtube
+            }
+            setUser(data)
+            onClose()
         }
-
         switch (currentStep) {
             case 1:
                 return (
@@ -78,7 +91,8 @@ const Stepper = () => {
                             </button>
                         </div>
                     }
-                    <button className="bg-[#4285F4] my-2 py-2 px-3 rounded-xl text-white w-18"
+                    <button
+                        className="bg-[#4285F4] my-2 py-2 px-3 rounded-xl text-white w-18"
                             onClick={() => {
                                 currentStep === steps.length ?
                                     setComplete(true) :

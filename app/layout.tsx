@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import {Montserrat} from "@next/font/google";
 import Providers from "@/components/Providers";
+import {UserContextProvider} from "@/context/UserContext";
 
 const font = Montserrat({ subsets: ['latin'] })
 
@@ -18,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-      <Providers>
-        {children}
-      </Providers>
+      <UserContextProvider>
+          <Providers>
+              {children}
+          </Providers>
+      </UserContextProvider>
       </body>
     </html>
   )
