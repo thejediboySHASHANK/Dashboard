@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="flex justify-between">
             <p className="text-2xl font-bold">Dashboard</p>
             <div className="items-center flex gap-4">
-                <div className="flex items-center bg-white pr-5 rounded-2xl text-md py-1 border border-gray-200">
+                <div className="flex items-center bg-white pr-5 rounded-2xl text-md py-1 border border-gray-200 hidden md:flex">
                     <input className="rounded-2xl pl-6 focus:outline-none" placeholder="Search..."/>
                     <Search className="w-4 h-4" />
                 </div>

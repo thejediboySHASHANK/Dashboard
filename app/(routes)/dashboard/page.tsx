@@ -74,7 +74,7 @@ const Dashboard = () => {
                     <SideBar/>
                 </div>
                 <div className="bg-main md:overflow-y-hidden">
-                    <div className="h-full grid grid-rows-[10%, 50%, 40%] gap-y-4 px-10 py-10 overflow-y-hidden">
+                    <div className="h-full md:grid md:grid-rows-[10%, 50%, 40%] gap-y-4 px-3 md:px-10 py-10 overflow-y-hidden">
                         <div className="m-0 p-0">
                             <Navbar/>
                             <div className="mt-4 md:flex md:justify-between md:gap-8">
@@ -98,12 +98,12 @@ const Dashboard = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="bg-white rounded-2xl w-full md:w-full border shadow-lg border-2 border-gray-200 p-6">
+                        <div className="mt-10 md:mt-0 bg-white rounded-2xl w-full md:w-full border shadow-lg border-2 border-gray-200 p-6">
                             <p className="text-lg font-bold">Activities</p>
                             <p className="text-xs text-gray-500">May - June 2021</p>
                             <ChartBar/>
                         </div>
-                        <div className="grid md:flex md:justify-between md:gap-8">
+                        <div className="mt-10 md:mt-0 grid md:flex md:justify-between md:gap-8">
                             <div className="md:flex md:justify-around md:items-center md:w-1/2 p-6 bg-white shadow-lg rounded-2xl border-2 border-gray-200">
                                 <div className="grid grid-cols-2">
                                     <div>
