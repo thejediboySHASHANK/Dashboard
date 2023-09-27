@@ -10,7 +10,7 @@ import {
 } from 'chart.js/auto';
 // Register the necessary scales
 ChartJS.register(CategoryScale, LinearScale, Title, Tooltip, Legend);
-// ChartJS.defaults.datasets.doughnut.borderRadius = 10;
+ChartJS.defaults.datasets.doughnut.cutoutPercentage = 50;
 // ChartJS.defaults.datasets.doughnut.spacing = 5;
 
 
@@ -19,6 +19,7 @@ const options = {
     type: 'doughnut',
     responsive: true,
     maintainAspectRatio: false,
+    cutoutPercentage:80,
     // aspectRatio: 2.5,
     plugins: {
         legend: {
@@ -29,6 +30,9 @@ const options = {
             display: true,
             text: '',
         },
+        sliceThickness : [
+            [100, 130],
+        ]
     },
 };
 
@@ -41,10 +45,11 @@ const DoughnutChart = () => {
             {
                 label: 'Data1',
                 data: [55, 31, 14],
+                borderWidth: 0,
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
+                    '#98D89E',
+                    '#F6DC7D',
+                    '#EE8484'
                 ],
                 // hoverOffset: 4
             },
@@ -52,7 +57,7 @@ const DoughnutChart = () => {
     };
 
     return (
-        <div className="rounded-2xl -mt-4" style={{height: "15vh"}}>
+        <div className="rounded-2xl mt-3" style={{height: "15vh"}}>
             <Doughnut className="" data={data} options={options}/>
         </div>
     );
