@@ -69,7 +69,7 @@ const Dashboard = () => {
     }
     return (
         <Fragment>
-            <div className="grid md:grid-cols-[1fr_4fr] h-full">
+            <div className="md:grid md:grid-cols-[1fr_4fr] h-full">
                 <div className="bg-main p-5">
                     <SideBar/>
                 </div>
