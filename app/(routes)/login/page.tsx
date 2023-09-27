@@ -10,8 +10,8 @@ import Discord from "../../../assests/login_assets/Discord.png"
 import SigninButton from "@/components/SigninButton";
 const LoginPage = () => {
     return (
-        <div className="grid grid-cols-2 h-full">
-            <div className="bg-login_primary grid">
+        <div className="md:grid md:grid-cols-2 h-full overflow-y-hidden">
+            <div className="hidden md:grid bg-login_primary grid">
                 <div>
                     <div className="text-white text-lg font-bold px-8 py-12">
                         LOGO
@@ -47,12 +47,12 @@ const LoginPage = () => {
                     />
                 </div>
             </div>
-            <div className="flex items-center justify-around bg-[#F8FAFF]">
+            <div className="flex items-center justify-around mt-52 md:mt-0 md:bg-[#F8FAFF]">
                 <div>
-                    <p className="text-3xl font-bold">Sign In</p>
-                    <p className="text-sm mt-1">Sign in to your account</p>
+                    <p className="text-3xl font-bold px-3 md:px-0">Sign In</p>
+                    <p className="text-sm mt-1 px-3 md:px-0">Sign in to your account</p>
                     {/*<button>Click</button>*/}
-                    <div className="mt-4">
+                    <div className="mt-4 px-3 md:px-0">
                         <SigninButton />
                     </div>
                     <div className="bg-[#FFFFFF] w-96 rounded-xl mt-6">

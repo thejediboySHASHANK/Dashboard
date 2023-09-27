@@ -37,7 +37,7 @@ const SideBar = () => {
 
     ]
     return (
-        <div className="bg-login_primary rounded-xl h-full pb-4 md:pb-0">
+        <div className="bg-login_primary md:rounded-xl h-full pb-4 md:pb-0">
             <p className="text-white text-4xl font-bold px-10 pt-12 pb-6">Board.</p>
             <div className="space-y-2.5 mt-4  md:grid">
                 {routes.map((route) => (
