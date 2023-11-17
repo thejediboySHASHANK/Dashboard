@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from "next/link";
-import {CalendarClock, LayoutDashboard, Settings, Tag, UserCircle2} from "lucide-react";
+import {CalendarClock, LayoutDashboard, Search, Settings, Tag, UserCircle2} from "lucide-react";
 
 const SideBar = () => {
 
@@ -12,14 +12,14 @@ const SideBar = () => {
             color: "text-sky-500"
         },
         {
-            label: "Transactions",
-            icon: Tag,
-            href: "/conversation",
+            label: "Search",
+            icon: Search,
+            href: "/search",
             color: "text-violet-500"
         },
         {
             label: "Schedules",
-            icon: CalendarClock,
+            icon: Search,
             href: "/image",
             color: "text-pink-700"
         },
@@ -38,7 +38,7 @@ const SideBar = () => {
     ]
     return (
         <div className="bg-login_primary md:rounded-xl h-full pb-4 md:pb-0">
-            <p className="text-white text-4xl font-bold px-10 pt-12 pb-6">Board.</p>
+            <p className="text-white text-4xl font-bold px-10 pt-12 pb-6">Logger.</p>
             <div className="space-y-2.5 mt-4  md:grid">
                 {routes.map((route) => (
                     <Link
